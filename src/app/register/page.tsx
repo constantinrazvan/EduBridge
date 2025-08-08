@@ -65,7 +65,13 @@ export default function RegisterPage() {
       icon: '🏢',
       color: 'warning',
     },
-  };
+    [UserRole.ADMIN]: {
+      title: 'Administrator',
+      description: 'Manage the entire platform and user base',
+      icon: '🔒',
+      color: 'danger',
+    },
+  } as const;
 
   const onSubmit = async (data: RegisterFormData) => {
     if (!selectedRole) {
