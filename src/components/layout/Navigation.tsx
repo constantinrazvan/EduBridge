@@ -186,17 +186,16 @@ export const Navigation: React.FC = () => {
               </>
             ) : (
               <>
-                <Button 
-                  as={Link} 
-                  href="/login" 
-                  variant="outline-primary" 
-                  className="me-2"
-                >
-                  Login
-                </Button>
-                <Button as={Link} href="/register" variant="primary">
-                  Register
-                </Button>
+                <Link href="/login">
+                  <Button variant="outline-primary" className="me-2">
+                    Login
+                  </Button>
+                </Link>
+                <Link href="/register">
+                  <Button variant="primary">
+                    Register
+                  </Button>
+                </Link>
               </>
             )}
           </Nav>

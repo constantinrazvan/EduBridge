@@ -104,7 +104,7 @@ const RewardsStore: React.FC<RewardsStoreProps> = ({ rewards, userPoints }) => {
                     </div>
                     <p className="text-muted small mb-2">{reward.description}</p>
                     {reward.sponsor && (
-                      <Badge bg="info" size="sm" className="me-1">
+                      <Badge bg="info" className="me-1 fs-6">
                         Sponsored by {reward.sponsor}
                       </Badge>
                     )}
@@ -113,7 +113,7 @@ const RewardsStore: React.FC<RewardsStoreProps> = ({ rewards, userPoints }) => {
                     <div className="fw-bold text-primary fs-5">
                       {reward.value.toLocaleString()} pts
                     </div>
-                    <Badge bg={getTypeColor(reward.type)} size="sm">
+                    <Badge bg={getTypeColor(reward.type)} className="fs-6">
                       {reward.type}
                     </Badge>
                   </div>

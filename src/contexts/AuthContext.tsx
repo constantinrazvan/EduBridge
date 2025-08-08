@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { AuthContextType, AuthService, RBACManager } from '@/lib/auth';
-import { BaseUser } from '@/types';
+import { BaseUser, PermissionAction } from '@/types';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -73,7 +73,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     localStorage.removeItem('edubridge_user');
   };
 
-  const hasPermission = (resource: string, action: string): boolean => {
+  const hasPermission = (resource: string, action: PermissionAction): boolean => {
     if (!user) return false;
     return RBACManager.hasPermission(user, resource, action);
   };

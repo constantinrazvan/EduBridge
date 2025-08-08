@@ -92,7 +92,7 @@ const Leaderboards: React.FC<LeaderboardsProps> = ({ leaderboards }) => {
               <div className="user-info flex-grow-1">
                 <div className="fw-bold">{entry.username}</div>
                 <div className="small text-muted">
-                  <Badge bg={getCategoryColor(entry.category)} size="sm">
+                  <Badge bg={getCategoryColor(entry.category)} className="fs-6">
                     {entry.category}
                   </Badge>
                 </div>

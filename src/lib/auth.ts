@@ -70,7 +70,7 @@ export interface AuthContextType {
   user: BaseUser | null;
   login: (email: string, password: string) => Promise<boolean>;
   logout: () => void;
-  hasPermission: (resource: string, action: string) => boolean;
+  hasPermission: (resource: string, action: PermissionAction) => boolean;
   isLoading: boolean;
 }
 
