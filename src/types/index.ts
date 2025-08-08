@@ -1,11 +1,12 @@
 // Core User Types
 export enum UserRole {
-  STUDENT = 'student',
-  PARENT = 'parent',
-  INSTITUTION = 'institution',
-  COMPANY = 'company',
-  ADMIN = 'admin'
+  STUDENT = 'STUDENT',
+  PARENT = 'PARENT',
+  INSTITUTION = 'INSTITUTION',
+  COMPANY = 'COMPANY',
+  ADMIN = 'ADMIN',
 }
+
 
 export enum UserStatus {
   ACTIVE = 'active',
