@@ -130,7 +130,7 @@ const Challenges: React.FC<ChallengesProps> = ({ challenges }) => {
                     <div className="fw-bold text-primary">
                       {challenge.points} pts
                     </div>
-                    <Badge bg={getCategoryColor(challenge.category)} size="sm">
+                    <Badge bg={getCategoryColor(challenge.category)} pill>
                       {challenge.category}
                     </Badge>
                   </div>
@@ -254,7 +254,7 @@ const Challenges: React.FC<ChallengesProps> = ({ challenges }) => {
                           </div>
                           <div className="text-end">
                             <div className="fw-bold text-success">{reward.value}</div>
-                            <Badge bg={reward.isRedeemed ? 'secondary' : 'success'} size="sm">
+                            <Badge bg={reward.isRedeemed ? 'secondary' : 'success'} pill>
                               {reward.isRedeemed ? 'Redeemed' : 'Available'}
                             </Badge>
                           </div>
