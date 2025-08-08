@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Container, Row, Col, Card, Spinner } from 'react-bootstrap';
 import { useAuth } from '@/contexts/AuthContext';
+import { RBACManager } from '@/lib/auth';
 import { UserRole, Permission } from '@/types';
 
 interface ProtectedRouteProps {
@@ -19,7 +20,7 @@ export default function ProtectedRoute({
   requiredPermission,
   fallbackPath = '/login',
 }: ProtectedRouteProps) {
-  const { user, isLoading, hasPermission } = useAuth();
+  const { user, isLoading } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
@@ -37,12 +38,12 @@ export default function ProtectedRoute({
       }
 
       // If a specific permission is required and user doesn't have it
-      if (requiredPermission && !hasPermission(requiredPermission)) {
+      if (requiredPermission && !RBACManager.hasPermission(user, requiredPermission.resource, requiredPermission.action)) {
         router.push('/dashboard');
         return;
       }
     }
-  }, [user, isLoading, requiredRole, requiredPermission, hasPermission, router, fallbackPath]);
+  }, [user, isLoading, requiredRole, requiredPermission, router, fallbackPath]);
 
   // Show loading spinner while checking authentication
   if (isLoading) {
