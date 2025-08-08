@@ -12,13 +12,11 @@ interface NewPasswordFormData {
   confirmPassword: string;
 }
 
-interface PageProps {
-  params: {
-    token: string;
-  };
+interface NewPasswordPageProps {
+  params: { token: string };
 }
 
-export default function NewPasswordPage({ params }: PageProps) {
+export default function NewPasswordPage({ params }: NewPasswordPageProps)  {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
