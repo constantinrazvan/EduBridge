@@ -123,7 +123,7 @@ const Challenges: React.FC<ChallengesProps> = ({ challenges }) => {
                     <ProgressBar 
                       now={(challenge.progress / challenge.maxProgress) * 100}
                       variant="primary"
-                      size="sm"
+                      className="progress-sm"
                     />
                   </div>
                   <div className="text-end">
@@ -162,7 +162,7 @@ const Challenges: React.FC<ChallengesProps> = ({ challenges }) => {
                         <div className="fw-bold text-success">
                           +{challenge.points} pts
                         </div>
-                        <Badge bg={getCategoryColor(challenge.category)} size="sm">
+                        <Badge bg={getCategoryColor(challenge.category)} pill>
                           {challenge.category}
                         </Badge>
                       </div>
