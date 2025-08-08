@@ -1,7 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  reactStrictMode: true,
+  images: {
+    domains: ["localhost", "res.cloudinary.com"],
+  },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
+  },
+  experimental: {
+    optimizeCss: true,
+    esmExternals: true,
+  },
 };
 
 export default nextConfig;
