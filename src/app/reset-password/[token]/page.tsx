@@ -1,11 +1,5 @@
 import NewPasswordClient from './NewPasswordClient';
 
-interface PageProps {
-  params: {
-    token: string;
-  };
-}
-
-export default function Page({ params }: PageProps) {
+export default async function Page({ params }: { params: { token: string } }) {
   return <NewPasswordClient token={params.token} />;
 }
