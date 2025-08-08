@@ -4,8 +4,8 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Container, Row, Col, Card, Spinner } from 'react-bootstrap';
 import { useAuth } from '@/contexts/AuthContext';
-import { RBACManager } from '@/lib/auth';
 import { UserRole, Permission } from '@/types';
+import { RBACManager } from '@/lib/auth';
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
@@ -20,7 +20,7 @@ export default function ProtectedRoute({
   requiredPermission,
   fallbackPath = '/login',
 }: ProtectedRouteProps) {
-  const { user, isLoading } = useAuth();
+  const { user, isLoading, hasPermission } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function ProtectedRoute({
       }
 
       // If a specific permission is required and user doesn't have it
-      if (requiredPermission && !RBACManager.hasPermission(user, requiredPermission.resource, requiredPermission.action)) {
+      if (requiredPermission && !hasPermission(requiredPermission.resource, requiredPermission.action)) {
         router.push('/dashboard');
         return;
       }
@@ -50,13 +50,10 @@ export default function ProtectedRoute({
     return (
       <Container className="py-5">
         <Row className="justify-content-center">
-          <Col md={6} lg={4}>
-            <Card className="shadow text-center">
-              <Card.Body className="p-5">
-                <Spinner animation="border" variant="primary" className="mb-3" />
-                <h5>Loading...</h5>
-                <p className="text-muted">Please wait while we verify your access.</p>
-              </Card.Body>
+          <Col md={6}>
+            <Card className="text-center p-4">
+              <Spinner animation="border" variant="primary" className="mx-auto mb-3" />
+              <h5>Loading...</h5>
             </Card>
           </Col>
         </Row>
@@ -75,7 +72,7 @@ export default function ProtectedRoute({
   }
 
   // If permission requirement is not met, don't render children
-  if (requiredPermission && !RBACManager.hasPermission(user, requiredPermission.resource, requiredPermission.action)) {
+  if (requiredPermission && !hasPermission(requiredPermission.resource, requiredPermission.action)) {
     return null;
   }
 

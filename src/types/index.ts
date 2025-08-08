@@ -7,6 +7,16 @@ export enum UserRole {
   ADMIN = 'ADMIN',
 }
 
+// Permission System
+export type PermissionAction = 'create' | 'read' | 'update' | 'delete';
+
+export interface Permission {
+  id: string;
+  name: string;
+  resource: string;
+  action: PermissionAction;
+}
+
 
 export enum UserStatus {
   ACTIVE = 'active',

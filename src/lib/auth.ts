@@ -1,4 +1,4 @@
-import { UserRole, Permission, BaseUser } from '@/types';
+import { UserRole, Permission, BaseUser, PermissionAction } from '@/types';
 
 // RBAC Permission System
 export class RBACManager {
@@ -53,7 +53,7 @@ export class RBACManager {
     ]);
   }
 
-  static hasPermission(user: BaseUser, resource: string, action: string): boolean {
+  static hasPermission(user: BaseUser, resource: string, action: PermissionAction): boolean {
     const userPermissions = this.permissions.get(user.role) || [];
     return userPermissions.some(permission => 
       permission.resource === resource && permission.action === action
