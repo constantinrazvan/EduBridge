@@ -84,7 +84,7 @@ const BadgesAchievements: React.FC<BadgesAchievementsProps> = ({ badges, achieve
                           <i className={`bi ${badge.icon} fs-4 text-${getRarityColor(badge.rarity)}`}></i>
                         </div>
                         <div className="badge-name small fw-bold">{badge.name}</div>
-                        <Badge bg={getRarityColor(badge.rarity)} size="sm">{badge.rarity}</Badge>
+                        <Badge bg={getRarityColor(badge.rarity)} pill className="badge-rarity">{badge.rarity}</Badge>
                       </div>
                     </Col>
                   ))}
@@ -110,8 +110,7 @@ const BadgesAchievements: React.FC<BadgesAchievementsProps> = ({ badges, achieve
                         {badge.progress !== undefined && (
                           <ProgressBar 
                             now={(badge.progress / (badge.maxProgress || 1)) * 100} 
-                            size="sm"
-                            className="mt-1"
+                            className="progress-sm mt-1"
                           />
                         )}
                       </div>
@@ -140,7 +139,7 @@ const BadgesAchievements: React.FC<BadgesAchievementsProps> = ({ badges, achieve
                           <i className={`bi ${achievement.icon} fs-4 text-${getCategoryColor(achievement.category)}`}></i>
                         </div>
                         <div className="achievement-name small fw-bold">{achievement.name}</div>
-                        <Badge bg={getCategoryColor(achievement.category)} size="sm">{achievement.points} pts</Badge>
+                        <Badge bg={getCategoryColor(achievement.category)} pill className="badge-points">{achievement.points} pts</Badge>
                       </div>
                     </Col>
                   ))}
@@ -166,8 +165,7 @@ const BadgesAchievements: React.FC<BadgesAchievementsProps> = ({ badges, achieve
                         {achievement.progress !== undefined && (
                           <ProgressBar 
                             now={(achievement.progress / (achievement.maxProgress || 1)) * 100} 
-                            size="sm"
-                            className="mt-1"
+                            className="progress-sm mt-1"
                           />
                         )}
                       </div>
