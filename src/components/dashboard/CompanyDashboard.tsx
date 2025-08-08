@@ -391,6 +391,7 @@ const CompanyDashboard = () => {
   const [showAssessmentModal, setShowAssessmentModal] = useState(false);
   const [selectedCandidate, setSelectedCandidate] = useState<any>(null);
   const [selectedAssessment, setSelectedAssessment] = useState<any>(null);
+  const [selectedPartnership, setSelectedPartnership] = useState<any>(null);
   const [showPartnershipModal, setShowPartnershipModal] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
