@@ -75,7 +75,7 @@ export default function ProtectedRoute({
   }
 
   // If permission requirement is not met, don't render children
-  if (requiredPermission && !hasPermission(requiredPermission)) {
+  if (requiredPermission && !RBACManager.hasPermission(user, requiredPermission.resource, requiredPermission.action)) {
     return null;
   }
 
